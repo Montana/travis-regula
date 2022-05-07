@@ -17,3 +17,4 @@ script:
     echo "${REGULA_RULES_PASSED} rules passed, ${REGULA_RULES_FAILED} rules
     failed" >&2
   - 'if [[ "$REGULA_RULES_FAILED" -gt 0 ]]; then exit 1; fi'
+  - regula completion bash
