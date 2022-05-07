@@ -32,14 +32,17 @@ In the CLI, but it will print out something like this:
 
 If the `regula` command isn't working you need to install Regula and the binary. Make sure you run the following:
 
-```brew tap fugue/regula
 ```
-```brew install regula
+brew tap fugue/regula
+```
+```
+brew install regula
 ```
 
 If you want to upgrade regula, just run:
 
-```brew upgrade regula
+```
+brew upgrade regula
 ```
 
 ## Usage
