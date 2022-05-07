@@ -35,6 +35,9 @@ If the `regula` command isn't working you need to install Regula and the binary.
 ```
 brew tap fugue/regula
 ```
+
+Once brew has symlinked `fugue/regula`, you can now start the install process:
+
 ```
 brew install regula
 ```
