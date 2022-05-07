@@ -1,6 +1,6 @@
 ## Regula
 
-We're gonna get Regula up and running, with something I thought of which is using a `mock_json` file I created, this is so you can sample it first, once you get a final `main.tf` (Terraform), you can edit as you please. Once Terraform calls Regula then Travis picks up the /POST and sees if it gets a response from Regula. This is a working example. 
+We're gonna get Regula up and running, with something I thought of which is using a `mock_json` file I created, this is so you can sample it first, once you get a final `main.tf` (Terraform), you can edit as you please. Once Terraform calls Regula then Travis picks up the /POST and sees if it gets a response from Regula. This is a working example, and Travis is in my opinion the easiest development tool, to set Regula up on and get up and running with max uptime. 
 
 ## Swagger 
 
