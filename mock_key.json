@@ -8,5 +8,6 @@
     "auth_uri": "xxxxxxxxxxxxxxxxxxxxxxxx",
     "token_uri": "xxxxxxxxxxxxxxxxxxxxxxxx",
     "auth_provider_x509_cert_url": "xxxxxxxxxxxxxxxxxxxxxxxx",
+    "api_token": "xxxxxxxxxxxxxxxxxxxxxxxx",
     "client_x509_cert_url": "xxxxxxxxxxxxxxxxxxxxxxxx"
   }
