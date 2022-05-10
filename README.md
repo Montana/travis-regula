@@ -4,7 +4,7 @@ We're gonna get Regula up and running, with something I thought of which is usin
 
 ## Kubernetes
 
-There is a compliant Kubernetes pod in this repo I've also banged out, since we're using Travis there's not _alot_ of need for it, but I'm just trying to give you the most options as feasible. 
+There is a compliant Kubernetes pod in this repo I've also banged out, since we're using Travis there's not _alot_ of need for it, but I'm just trying to give you the most feasible option.
 
 ## Swagger 
 
