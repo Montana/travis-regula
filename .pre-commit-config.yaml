@@ -1,0 +1,15 @@
+repos:
+  - repo: local
+    hooks:
+    - id: regula-cfn
+      name: Regula for CloudFormation
+      entry: regula run -f tap -t cfn
+      language: system
+      files: ^src/.*(yaml)$
+  - repo: local
+    hooks:
+    - id: regula-tf
+      name: Regula for Terraform HCL
+      entry: regula run -f tap -t tf
+      language: system
+      files: .*(tf)
