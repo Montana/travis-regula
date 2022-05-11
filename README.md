@@ -2,6 +2,16 @@
 
 We're gonna get Regula up and running, with something I thought of which is using a `mock_key.json` file I created, this is so you can sample it first, once you get a final `main.tf` (Terraform), you can edit as you please. Once Terraform calls Regula then Travis picks up the /POST and sees if it gets a response from Regula. This is a working example, and Travis is in my opinion the easiest development tool, to set Regula up on and get up and running with max uptime. 
 
+## Terraform
+
+We can grab Terraform by putting this in our `script` hook in our `travis.yml` file:
+
+```bash
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo apt-get update && sudo apt-get install terraform
+```
+
 ## Kubernetes
 
 There is a compliant Kubernetes pod in this repo I've also banged out, since we're using Travis there's not _alot_ of need for it, but I'm just trying to give you the most feasible option.
