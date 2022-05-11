@@ -30,8 +30,6 @@ script:
   - regula -v
   - regula init
   - regula run --format table
-  - regula repl variable.tf
-  - package variable.tf
   - >-
     echo "${REGULA_RULES_PASSED} rules passed, ${REGULA_RULES_FAILED} rules
     failed" >&2
