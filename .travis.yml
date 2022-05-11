@@ -29,7 +29,7 @@ script:
   - REGULA_RULES_FAILED="$(jq -r '.summary.rule_results.FAIL' "$REGULA_OUTPUT")"
   - regula -v
   - regula init
-  - regula repl policies.json
+  - regula repl variable.tf
   - >-
     echo "${REGULA_RULES_PASSED} rules passed, ${REGULA_RULES_FAILED} rules
     failed" >&2
