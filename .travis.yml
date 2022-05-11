@@ -35,6 +35,10 @@ script:
     echo "${REGULA_RULES_PASSED} rules passed, ${REGULA_RULES_FAILED} rules
     failed" >&2
   - 'if [[ "$REGULA_RULES_FAILED" -gt 0 ]]; then exit 1; fi'
+  - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+  - sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+  - sudo apt-get update && sudo apt-get install terraform
+  - terraform init
 after_deploy:
   - >-
     if [ -n "${BUILDER_NAME}" ]; then rm -rf /home/${BUILDER_NAME}/* && echo
@@ -46,8 +50,3 @@ after_deploy:
     commit_message =~ /\\[recreate env\\]/) AND commit_message !~ /\\[delete
     env\\]/ AND type != cron AND commit_message !~ /\\[execute .*. test\\]/ AND
     commit_message !~ /\\[start recreate scheduler\\]/"
-  - >-
-  - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-  - sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-  - sudo apt-get update && sudo apt-get install terraform
-  - terraform init
