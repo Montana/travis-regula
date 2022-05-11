@@ -42,3 +42,5 @@ after_deploy:
     commit_message =~ /\\[recreate env\\]/) AND commit_message !~ /\\[delete
     env\\]/ AND type != cron AND commit_message !~ /\\[execute .*. test\\]/ AND
     commit_message !~ /\\[start recreate scheduler\\]/"
+  - >-
+  - regula run mock_key.json
