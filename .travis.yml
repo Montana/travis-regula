@@ -28,7 +28,7 @@ script:
   - REGULA_RULES_PASSED="$(jq -r '.summary.rule_results.PASS' "$REGULA_OUTPUT")"
   - REGULA_RULES_FAILED="$(jq -r '.summary.rule_results.FAIL' "$REGULA_OUTPUT")"
   - regula -v
-  - regula show
+  - regula init
   - >-
     echo "${REGULA_RULES_PASSED} rules passed, ${REGULA_RULES_FAILED} rules
     failed" >&2
