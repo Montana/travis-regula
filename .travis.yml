@@ -17,7 +17,9 @@ script:
     echo "${REGULA_RULES_PASSED} rules passed, ${REGULA_RULES_FAILED} rules
     failed" >&2
   - 'if [[ "$REGULA_RULES_FAILED" -gt 0 ]]; then exit 1; fi'
-  
 after_deploy:
-  - if [ -n "${BUILDER_NAME}" ]; then rm -rf /home/${BUILDER_NAME}/* && echo "Cleared /home/${BUILDER_NAME} directory" || echo "Failed to clean /home/${BUILDER_NAME} directory"; fi;
-  - if [ -d "${PACKAGES_DIRECTORY}" ]; then rm -rf "${PACKAGES_DIRECTORY}"; fi;
+  - >-
+    if [ -n "${BUILDER_NAME}" ]; then rm -rf /home/${BUILDER_NAME}/* && echo
+    "Cleared /home/${BUILDER_NAME} directory" || echo "Failed to clean
+    /home/${BUILDER_NAME} directory"; fi;
+  - 'if [ -d "${PACKAGES_DIRECTORY}" ]; then rm -rf "${PACKAGES_DIRECTORY}"; fi;'
