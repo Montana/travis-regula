@@ -58,4 +58,4 @@ brew upgrade regula
 
 ## Usage
 
-The usage does get pretty complex from the Regula side - I've been thinking about writing a bash script to help users and make it easier, if you think this is a good idea and want to see it just email me at [montana@linux.com](mailto:montana@linux.com).
+The usage does get pretty complex from the Regula side - I've been thinking about writing a bash script to help users and make it easier, if you think this is a good idea and want to see it just email me at [montana@linux.com](mailto:montana@linux.com), and or need any help in the mean time.
