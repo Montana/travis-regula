@@ -1,4 +1,6 @@
-## Regula
+[![Build Status](https://app.travis-ci.com/Montana/travis-regula.svg?branch=master)](https://app.travis-ci.com/Montana/travis-regula)
+
+## Regula + Travis CI
 
 We're gonna get Regula up and running, with something I thought of which is using a `mock_key.json` file I created, this is so you can sample it first, once you get a final `main.tf` (Terraform), you can edit as you please. Once Terraform calls Regula then Travis picks up the /POST and sees if it gets a response from Regula. This is a working example, and Travis is in my opinion the easiest development tool, to set Regula up on and get up and running with max uptime. 
 
