@@ -10,14 +10,6 @@ env:
   global:
     - 'PATH="$HOME/.local/bin:$PATH"'
     - REGULA_VERSION=1.6.0
-
-before_install:
-    - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/terraform/d' | tr "\n" ":" | sed "s|::|:|g")
-    - exec > >(ts -s '%H:%M:%.S ') 2>&1
-    - RANGE1=`echo "$TRAVIS_COMMIT_RANGE" | awk '{n=split($1,a,".");print a[1]}'`
-    - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-    - sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-    - sudo apt-get update && sudo apt-get install terraform
 install:
   - >-
     if [[ "${TRAVIS_COMMIT_MESSAGE}" = *"[Build latest]"* ]]; then export
@@ -37,7 +29,8 @@ script:
   - REGULA_RULES_FAILED="$(jq -r '.summary.rule_results.FAIL' "$REGULA_OUTPUT")"
   - regula -v
   - regula init
-  - terraform validate
+  - regula run
+  - regula run --format table
   - >-
     echo "${REGULA_RULES_PASSED} rules passed, ${REGULA_RULES_FAILED} rules
     failed" >&2
