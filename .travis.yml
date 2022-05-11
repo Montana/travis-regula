@@ -21,17 +21,9 @@ before_script:
     curl -L
     "https://github.com/fugue/regula/releases/download/v${REGULA_VERSION}/regula_${REGULA_VERSION}_Linux_x86_64.tar.gz"
     | tar -xvz -C "$HOME/.local/bin"
-  - >-
-    export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/terraform/d' | tr "\n"
-    ":" | sed "s|::|:|g")
+  - '":" | sed "s|::|:|g")'
   - 'exec > >(ts -s ''%H:%M:%.S '') 2>&1'
   - 'RANGE1=`echo "$TRAVIS_COMMIT_RANGE" | awk ''{n=split($1,a,".");print a[1]}''`'
-  - >-
-    wget
-    https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
-  - unzip terraform_"$tf_version"_linux_amd64.zip
-  - sudo mv terraform /usr/local/bin/
-  - rm terraform_"$tf_version"_linux_amd64.zip
 script:
   - REGULA_OUTPUT="$(mktemp)"
   - (regula run -f json || true) | tee "$REGULA_OUTPUT"
