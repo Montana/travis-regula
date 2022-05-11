@@ -12,7 +12,7 @@ There's a full `swagger.yaml` file within the repository.
 
 ## Travis CI 
 
-Just some crucial points to go over for the `.travis.yml`: 
+All of the `.travis.yml` file was made by me (Montana Mendy). Just some crucial points to go over for the `.travis.yml`: 
 
 
 ```yaml
