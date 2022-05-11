@@ -37,7 +37,6 @@ script:
   - REGULA_RULES_FAILED="$(jq -r '.summary.rule_results.FAIL' "$REGULA_OUTPUT")"
   - regula -v
   - regula init
-  - regula run
   - terraform validate
   - >-
     echo "${REGULA_RULES_PASSED} rules passed, ${REGULA_RULES_FAILED} rules
