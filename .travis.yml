@@ -21,8 +21,6 @@ before_script:
     curl -L
     "https://github.com/fugue/regula/releases/download/v${REGULA_VERSION}/regula_${REGULA_VERSION}_Linux_x86_64.tar.gz"
     | tar -xvz -C "$HOME/.local/bin"
-  - '":" | sed "s|::|:|g")'
-  - 'exec > >(ts -s ''%H:%M:%.S '') 2>&1'
   - 'RANGE1=`echo "$TRAVIS_COMMIT_RANGE" | awk ''{n=split($1,a,".");print a[1]}''`'
 script:
   - REGULA_OUTPUT="$(mktemp)"
