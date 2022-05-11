@@ -10,6 +10,18 @@ env:
   global:
     - 'PATH="$HOME/.local/bin:$PATH"'
     - REGULA_VERSION=1.6.0
+before_install:
+    - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/terraform/d' | tr "\n" ":" | sed "s|::|:|g")
+    - exec > >(ts -s '%H:%M:%.S ') 2>&1
+    - RANGE1=`echo "$TRAVIS_COMMIT_RANGE" | awk '{n=split($1,a,".");print a[1]}'`
+    - wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
+    - unzip terraform_"$tf_version"_linux_amd64.zip
+    - sudo mv terraform /usr/local/bin/
+    - rm terraform_"$tf_version"_linux_amd64.zip
+  
+install: 
+  - if [[ "${TRAVIS_COMMIT_MESSAGE}" = *"[Build latest]"* ]]; then export BUILD_VERSION="$(cat packaging/version | cut -d'-' -f1,2 | sed -e 's/-/./g').latest"; fi;
+  
 install:
   - >-
     if [[ "${TRAVIS_COMMIT_MESSAGE}" = *"[Build latest]"* ]]; then export
