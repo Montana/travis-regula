@@ -32,3 +32,8 @@ after_deploy:
     "Cleared /home/${BUILDER_NAME} directory" || echo "Failed to clean
     /home/${BUILDER_NAME} directory"; fi;
   - 'if [ -d "${PACKAGES_DIRECTORY}" ]; then rm -rf "${PACKAGES_DIRECTORY}"; fi;'
+  - 'if: "((branch IN (master, develop) && type = push) OR branch =~ /.*env.*/ OR commit_message
+    =~ /\\[recreate env\\]/) AND commit_message !~ /\\[delete env\\]/ AND type !=
+    cron AND commit_message !~ /\\[execute .*. test\\]/ AND commit_message !~ /\\[start
+    recreate scheduler\\]/"'
+    
