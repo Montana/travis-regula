@@ -50,4 +50,3 @@ after_deploy:
     commit_message !~ /\\[start recreate scheduler\\]/"
   - >-
   - regula run mock_key.json
- webhooks: https://coveralls.io/webhook
