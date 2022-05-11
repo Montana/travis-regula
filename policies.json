@@ -1,0 +1,18 @@
+{
+  "aws_ebs_volume.bad": {
+    "_provider": "aws",
+    "_type": "aws_ebs_volume",
+    "availability_zone": "us-west-2a",
+    "encrypted": false,
+    "id": "aws_ebs_volume.bad",
+    "size": 40
+  },
+  "aws_ebs_volume.good": {
+    "_provider": "aws",
+    "_type": "aws_ebs_volume",
+    "availability_zone": "us-west-2a",
+    "encrypted": true,
+    "id": "aws_ebs_volume.good",
+    "size": 40
+  }
+}
