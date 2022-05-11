@@ -1,3 +1,7 @@
+branches:
+  only:
+    - master
+    - /^(cherry-pick-)?backport-\d+-to-/
 env:
   global:
     - 'PATH="$HOME/.local/bin:$PATH"'
