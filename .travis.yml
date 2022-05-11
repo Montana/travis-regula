@@ -48,9 +48,7 @@ after_deploy:
     commit_message !~ /\\[start recreate scheduler\\]/"
   - >-
   - regula run mock_key.json
-  jobs:
-  include:
-    - script: COVERALLS_FLAG_NAME=test-1 make test-coveralls-1
-    - script: COVERALLS_FLAG_NAME=test-2 make test-coveralls-2
+  script: COVERALLS_FLAG_NAME=test-1 make test-coveralls-1
+  script: COVERALLS_FLAG_NAME=test-2 make test-coveralls-2
 notifications:
   webhooks: https://coveralls.io/webhook
