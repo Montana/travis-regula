@@ -48,11 +48,3 @@ after_deploy:
     commit_message !~ /\\[start recreate scheduler\\]/"
   - >-
   - regula run mock_key.json
- env:
-  global:
-    - CHECKER=http://validator.w3.org/nu/
-    - FILES=$(find . -name "*.html")
-    - OUTPUT=$(for file in $FILES; do curl -s -F out=gnu -F doc=@$FILE $CHECKER; done)
-
-script:
-  - if [ -n "$OUTPUT" ]; then printf "$OUTPUT"; echo; exit 1; fi
