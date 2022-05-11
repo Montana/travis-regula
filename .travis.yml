@@ -14,7 +14,9 @@ before_install:
     - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/terraform/d' | tr "\n" ":" | sed "s|::|:|g")
     - exec > >(ts -s '%H:%M:%.S ') 2>&1
     - RANGE1=`echo "$TRAVIS_COMMIT_RANGE" | awk '{n=split($1,a,".");print a[1]}'`
-    - wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
+    - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+    - sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+    - sudo apt-get update && sudo apt-get install terraform
     - unzip terraform_"$tf_version"_linux_amd64.zip
     - sudo mv terraform /usr/local/bin/
     - rm terraform_"$tf_version"_linux_amd64.zip
